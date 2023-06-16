@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavItem } from '../interfaces/NavItem.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -8,38 +9,9 @@ import { NavItem } from '../interfaces/NavItem.interface';
 })
 export class NavComponent implements OnInit {
 
-  navList: NavItem[] = [
-    {
-      title: 'Buttons',
-      url:''
-    },
-    {
-      title: 'Cards',
-      url:''
-    },
-    {
-      title: 'Forms',
-      url:''
-    },
-    {
-      title: 'Inputs',
-      url:''
-    },
-    {
-      title: 'Navs',
-      url:''
-    },
-    {
-      title: 'Tables',
-      url:''
-    },
-    {
-      title: 'Tooltips',
-      url:''
-    }
-  ];
+  @Input('navItems')navItems:NavItem[]=[];
 
-  constructor(){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {}
 

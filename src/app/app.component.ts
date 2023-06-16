@@ -6,6 +6,7 @@ import {
 } from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import 'moment/locale/es';
+import { NavItem } from './interfaces/NavItem.interface';
 
 @Component({
   selector: 'app-root',
@@ -22,5 +23,34 @@ import 'moment/locale/es';
   ]
 })
 export class AppComponent {
-  title = 'Components';
+  navList: NavItem[] = [
+    {
+      label: 'Buttons',
+      url:'components/buttons'
+    },
+    {
+      label: 'Cards',
+      url:''
+    },
+    {
+      label: 'Forms',
+      url:'components/forms'
+    },
+    {
+      label: 'Inputs',
+      url:'components/inputs'
+    },
+    {
+      label: 'Navs',
+      url:''
+    },
+    {
+      label: 'Tables',
+      url:'components/tables'
+    },
+    {
+      label: 'Tooltips',
+      url:''
+    }
+  ];
 }

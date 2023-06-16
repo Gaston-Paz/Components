@@ -1,1 +1,4 @@
-<p>nav works!</p>
+<mat-nav-list>
+    <a mat-list-item *ngFor="let item of navItems" [routerLink]="item.url">{{ item.label }}</a>
+</mat-nav-list>
+  

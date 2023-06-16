@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="d-flex row w-100">
+    <div class="col-2 text-center">
+        <h1 class="text-white">Menú</h1>
+        <app-nav [navItems]="navList"></app-nav>
+    </div>
+    <div class="col-10">
+        <router-outlet></router-outlet>
+    </div>
+</div>
