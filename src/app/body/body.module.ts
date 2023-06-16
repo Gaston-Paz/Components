@@ -9,6 +9,7 @@ import { InputModule } from '../shared/input/input.module';
 import { FormsComponent } from './forms/forms.component';
 import { FormModule } from '../shared/form/form.module';
 import { TablesComponent } from './tables/tables.component';
+import { TableModule } from '../shared/table/table.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TablesComponent } from './tables/tables.component';
     BodyRoutingModule,
     ButtonModule,
     InputModule,
-    FormModule
+    FormModule,
+    TableModule
   ]
 })
 export class BodyModule { }

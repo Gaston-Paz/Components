@@ -1,1 +1,94 @@
-<p>table works!</p>
+<!-- Tabla simple -->
+<div class="w-100" *ngIf="type === 'tableSimple'">
+    <mat-form-field class="w-100">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <div class="w-100 mb-4">
+        <app-button [type]="'mat-raised-button'" [text]="'Ocultar/mostrar columnas'" [color]="'primary'" (clickButton)="onClickButton()"></app-button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Position Column -->
+        <ng-container *ngFor="let col of displayedColumns; let i = index;" [matColumnDef]="col" >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ col | titlecase }} </th>
+            <td mat-cell *matCellDef="let element"> {{ element[displayedColumns[i]] }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<!-- Tabla con ordenamiento de columnas -->
+<div class="w-100" *ngIf="type === 'tableOrdenable'">
+    <mat-form-field class="w-100">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <div class="w-100 mb-4">
+        <app-button [type]="'mat-raised-button'" [text]="'Ocultar/mostrar columnas'" [color]="'primary'"></app-button>
+    </div>
+
+    <table mat-table matSort [dataSource]="dataSource" cdkDropList cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="drop($event)">
+
+        <ng-container *ngFor="let col of displayedColumns; let i = index;" [matColumnDef]="col" >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ col | titlecase }} </th>
+            <td mat-cell *matCellDef="let element"> {{ element[displayedColumns[i]] }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
+
+<!-- Tabla seleccionable -->
+<div class="w-100" *ngIf="type === 'tableSeleccionable'">
+    <mat-form-field class="w-100">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <div class="w-100 mb-4">
+        <app-button [type]="'mat-raised-button'" [text]="'Ocultar/mostrar columnas'" [color]="'primary'"></app-button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort>
+      
+        <!-- Position Column -->
+        <ng-container *ngFor="let col of displayedColumns; let i = index;" [matColumnDef]="col">
+            <div *ngIf="col === 'select'">
+                <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? toggleAllRows() : null; emitSelection()"
+                                  [checked]="selection.hasValue() && isAllSelected()"
+                                  [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                  [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                  </th>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                                  (change)="$event ? selection.toggle(row) : null; emitSelection()"
+                                  [checked]="selection.isSelected(row)"
+                                  [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                  </td>
+            </div>
+            <div *ngIf="col !== 'select'">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ col | titlecase }} </th>
+                <td mat-cell *matCellDef="let element"> {{ element[displayedColumns[i]] }} </td>
+            </div>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selection.toggle(row)">
+        </tr>
+    </table> 
+</div>
+
+<mat-paginator [pageSizeOptions]="pageOptions"></mat-paginator>
