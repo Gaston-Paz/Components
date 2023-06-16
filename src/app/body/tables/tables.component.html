@@ -1,5 +1,5 @@
-<div class="d-flex row w-100">
-    <div class="d-flex col-6 p-2">
+<div class="d-flex row w-100 flex-wrap">
+    <div class="d-flex col-5 p-2">
         <h1>Tabla Simple: con ordenamiento y paginación</h1>
         <app-table [type]="'tableSimple'" [columns]="columns" [data]="data" [pageOptions]="[5,10,15,20]"></app-table>
     </div>
@@ -9,9 +9,8 @@
         <app-table [type]="'tableOrdenable'" [columns]="columns" [data]="data" [pageOptions]="[5,10,15,20]"></app-table>
     </div>
 
-    <div class="d-flex col-6 p-2">
+    <div class="d-flex col-5 p-2">
         <h1>Tabla Seleccionable</h1>
         <app-table [type]="'tableSeleccionable'" [columns]="columnsSelect" [data]="data" [pageOptions]="[5,10,15,20]"></app-table>
-   
     </div>
 </div>
