@@ -1,0 +1,49 @@
+<form [formGroup]="formulario" autocomplete="off" >
+
+    <div class="w-100"  *ngFor="let item of inputs">
+        <mat-form-field class="w-100" *ngIf="item.type === 'text'">
+            <mat-label> {{ item.label }} </mat-label>
+            <input matInput type="text" [formControlName]="item.control" >
+        </mat-form-field>
+
+        <mat-form-field class="w-100" *ngIf="item.type === 'number'">
+            <mat-label> {{ item.label }} </mat-label>
+            <input matInput type="number" [formControlName]="item.control">
+        </mat-form-field>
+
+        <mat-form-field class="w-100" *ngIf="item.type === 'email'">
+            <mat-label> {{ item.label }} </mat-label>
+            <input matInput type="email" [formControlName]="item.control">
+        </mat-form-field>
+
+        <mat-form-field class="w-100" *ngIf="item.type === 'password'">
+            <mat-label> {{ item.label }} </mat-label>
+            <input matInput type="password" [formControlName]="item.control">
+        </mat-form-field>
+
+        <mat-form-field class="w-100" *ngIf="item.type === 'date'">
+            <mat-label> {{ item.label }} </mat-label>
+            <input matInput [matDatepicker]="picker"
+                 [formControlName]="item.control"
+                  (keypress)="onKeyPress($event)"
+            >
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="w-100" *ngIf="item.type === 'selectSimple'">
+            <mat-label> {{ item.label }} </mat-label>
+            <mat-select [formControlName]="item.control">
+                <mat-option *ngFor="let select of item.list" [value]="select.value">
+                    {{select.description}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <app-button class="w-100" [type]="'mat-raised-button'" [disable]="!formulario.valid" [text]="'Guardar'" [icon]="'save'" [color]="'primary'" (clickButton)="onClickButton()"></app-button>
+</form>
+
+

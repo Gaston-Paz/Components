@@ -1,0 +1,15 @@
+<button *ngIf="type === 'mat-button'" [class]="class" mat-button [color]="color" (click)="onClick()" [disabled]="disable"> {{text}} <mat-icon *ngIf="icon !== ''"> {{icon}} </mat-icon> </button>
+
+<button *ngIf="type === 'mat-fab'" [class]="class" mat-fab [color]="color" (click)="onClick()" [disabled]="disable"> <mat-icon *ngIf="icon !== ''"> {{icon}} </mat-icon> </button>
+
+<button *ngIf="type === 'mat-flat-button'" [class]="class" mat-flat-button [color]="color" (click)="onClick()" [disabled]="disable"> {{text}} <mat-icon *ngIf="icon !== ''"> {{icon}} </mat-icon> </button>
+
+<button *ngIf="type === 'mat-icon-button'" [class]="class" mat-icon-button [color]="color" (click)="onClick()" [disabled]="disable"> <mat-icon *ngIf="icon !== ''"> {{icon}} </mat-icon> </button>
+
+<button *ngIf="type === 'mat-mini-fab'" [class]="class" mat-mini-fab [color]="color" (click)="onClick()" [disabled]="disable"> <mat-icon *ngIf="icon !== ''"> {{icon}} </mat-icon> </button>
+
+<button *ngIf="type === 'mat-raised-button'" [class]="class" mat-raised-button [color]="color" (click)="onClick()" [disabled]="disable"> {{text}} <mat-icon *ngIf="icon !== ''"> {{icon}} </mat-icon> </button>
+
+<button *ngIf="type === 'mat-stroked-button'" [class]="class" mat-stroked-button [color]="color" (click)="onClick()" [disabled]="disable"> {{text}} <mat-icon *ngIf="icon !== ''"> {{icon}} </mat-icon> </button>
+
+

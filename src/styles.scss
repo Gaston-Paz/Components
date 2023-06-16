@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    padding: 20px;
+    font-family: sans-serif; 
+}
+
+.d-flex{
+    display: flex;
+}
+.row{
+    flex-direction: row;
+}
+.w-100{
+    width: 100%;
+}
+.w-75{
+    width: 75%;
+}
+.w-50{
+    width: 50%;
+}
+.w-25{
+    width: 25%;
+}
+.col-12{
+    flex-direction: column;
+    width: 100%;
+}
+.col-11{
+    flex-direction: column;
+    width: 91.66666666666%;
+}
+.col-10{
+    flex-direction: column;
+    width: 83.33333333333%;
+}
+.col-9{
+    flex-direction: column;
+    width: 75%;
+}
+.col-8{
+    flex-direction: column;
+    width: 66.66666666666%;
+}
+.col-7{
+    flex-direction: column;
+    width: 58.33333333333%;
+}
+.col-6{
+    flex-direction: column;
+    width: 50%;
+}
+.col-5{
+    flex-direction: column;
+    width: 41.66666666666%;
+}
+.col-4{
+    flex-direction: column;
+    width: 33.33333333333%;
+}
+.col-3{
+    flex-direction: column;
+    width: 25%;
+}
+.col-2{
+    flex-direction: column;
+    width: 20%;
+}
+.col-1{
+    flex-direction: column;
+    width: 8.333333333333%;
+}
+
+.p-1{
+    padding: 0.25rem;
+}
+.p-2{
+    padding: 0.5rem;
+}
+.p-3{
+    padding: 1rem;
+}
+.p-4{
+    padding: 1.5rem;
+}
+.p-5{
+    padding: 3rem;
+}
+
+.mat-mdc-raised-button[disabled][disabled] {
+    --mdc-protected-button-disabled-label-text-color: rgba(255, 255, 255, 0.5);
+    --mdc-protected-button-container-color: rgba(255, 255, 255, 0.12);
+    --mdc-protected-button-label-text-color: rgba(255, 255, 255, 0.5);
+    --mdc-protected-button-container-elevation: 0;
+    --mdc-protected-button-disabled-container-color: #7b1fa26b;
+}
