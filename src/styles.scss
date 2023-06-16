@@ -6,8 +6,15 @@ body {
     font-family: sans-serif; 
 }
 
+.text-white{
+    color:#fff!important;
+}
+
 .d-flex{
     display: flex;
+}
+.justify-content-center{
+    justify-content: center;
 }
 .row{
     flex-direction: row;

@@ -13,6 +13,7 @@ import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ButtonModule } from '../button/button.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ButtonModule } from '../button/button.module';
     CdkDrag,
     MatTooltipModule,
     MatCheckboxModule,
+    MatDialogModule,
     ButtonModule
   ],
   exports: [

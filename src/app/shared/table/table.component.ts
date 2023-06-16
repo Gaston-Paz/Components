@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import {CdkDragDrop, CdkDrag, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-table',
@@ -25,7 +27,7 @@ export class TableComponent implements OnInit, AfterViewInit  {
 
   customPaginatorIntl!: MatPaginatorIntl;
   
-  constructor(){
+  constructor(public dialog: MatDialog){
     this.customPaginatorIntl = new MatPaginatorIntl();
     this.customPaginatorIntl.itemsPerPageLabel = 'Registros por página:';
     this.customPaginatorIntl.nextPageLabel = 'Siguiente página';
@@ -91,6 +93,27 @@ export class TableComponent implements OnInit, AfterViewInit  {
   }
 
   onClickButton(){
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '350px',
+      data: {
+        keys: Object.keys(this.data[0]),
+        colsActives: this.displayedColumns
+      }
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (result) => {
+        this.displayedColumns = result;
+      },
+      error: (error) => {
+        console.log(error);
+        
+      }
+    })
 
   }
 

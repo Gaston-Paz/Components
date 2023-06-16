@@ -1,0 +1,14 @@
+<div class="p-4">
+    <h1 class="text-white" mat-dialog-title>Columnas disponibles</h1>
+    <div mat-dialog-content>
+    <div class="example-section" *ngFor="let item of data.keys">
+        <mat-checkbox [checked]="data.colsActives.includes(item)" (change)="onCheck($event,item)"> {{ item | titlecase }} </mat-checkbox>
+    </div>
+</div>
+
+<div class="d-flex row w-100 justify-content-center" mat-dialog-actions>
+    <app-button class="mr-2" [class]="'text-white'" [type]="'mat-stroked-button'" [text]="'Cancelar'" [color]="'primary'" (clickButton)="onClickButtonCancel()"></app-button>
+    <app-button [type]="'mat-raised-button'" [text]="'Confirmar'" [color]="'primary'" cdkFocusInitial (clickButton)="onClickButton()"></app-button>
+</div>
+
+</div>
